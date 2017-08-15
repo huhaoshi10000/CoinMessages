@@ -18,7 +18,7 @@ export class RedditDataProvider {
   }
 
   getRemoteData(){
-  	 var url = 'https://www.reddit.com/r/gifs/top/.json';
+  	 var url = 'https://public-api.wordpress.com/rest/v1/freshly-pressed/';
   	 var response = this.http.get(url).map(res => res.json());
         return response;
   }
