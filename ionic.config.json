@@ -1,6 +1,6 @@
 {
   "name": "CoinMessages",
-  "app_id": "",
+  "app_id": "4419681b",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
