@@ -19,13 +19,14 @@
         <img [src]="item.website.logo">
       </ion-avatar>
       <h2>{{item.website.name}}</h2>
-      <!-- <p>{{item.author.URL}}</p> -->
+      <p>{{item.time}}</p>
     </ion-item>
 
-  <!--  <img [src]="item.image">-->
+    
 
     <ion-card-content>
         <h1>{{item.title}}</h1>
+        <img [src]="item.pic">
       <div [innerHTML]="item.content"></div>
     </ion-card-content>
 

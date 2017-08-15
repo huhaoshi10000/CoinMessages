@@ -1,0 +1,68 @@
+{
+  "BACK_BUTTON_TEXT" : "返回",
+
+  "NAME": "姓名",
+  "EMAIL": "邮箱",
+  "USERNAME": "用户名",
+  "PASSWORD": "密码",
+  "LOGIN": "登录",
+  "SIGNUP": "注册",
+
+  "TAB1_TITLE": "公告提醒",
+  "TAB2_TITLE": "搜索",
+  "TAB3_TITLE": "设置",
+
+  "MAP_TITLE": "地图",
+
+  "TUTORIAL_SKIP_BUTTON" : "跳过",
+  "TUTORIAL_CONTINUE_BUTTON" : "继续",
+
+  "TUTORIAL_SLIDE1_TITLE": "欢迎来到币提醒！",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>币提醒</b>是一款主打加密货币交易平台公告的实时提醒软件",
+
+  "TUTORIAL_SLIDE2_TITLE": "10多家主流交易所公告信息，30秒内通知提醒",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "最新的新闻资讯，24小时实时更新",
+
+  "TUTORIAL_SLIDE3_TITLE": "主流币种价格闹钟，让你不再错过",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "实时价格查看，手机价格提示更便捷！",
+
+  "TUTORIAL_SLIDE4_TITLE": "准备好体验了吗？",
+
+  "WELCOME_INTRO" : "欢迎来到币提醒！",
+
+  "SETTINGS_TITLE": "Settings",
+  "SETTINGS_OPTION1": "Option 1",
+  "SETTINGS_OPTION2": "Option 2",
+  "SETTINGS_OPTION3": "Option 3",
+  "SETTINGS_OPTION4": "Option 4",
+
+  "SETTINGS_PROFILE_BUTTON" : "Edit Profile",
+
+  "SETTINGS_PAGE_PROFILE": "Edit Profile",
+
+  "WELCOME_TITLE": "Welcome",
+
+  "LOGIN_TITLE": "登录",
+  "LOGIN_ERROR": "登陆失败，请查验账号密码",
+  "LOGIN_BUTTON": "登录",
+  "SIGNUP_TITLE": "注册",
+  "SIGNUP_ERROR": "注册失败，请再次查验信息",
+  "SIGNUP_BUTTON": "注册",
+
+  "LIST_MASTER_TITLE": "Items",
+
+  "ITEM_CREATE_TITLE": "New Item",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
+
+  "ITEM_NAME_PLACEHOLDER" : "Name",
+  "ITEM_ABOUT_PLACEHOLDER" : "About",
+
+  "DONE_BUTTON" : "Done",
+  "CANCEL_BUTTON" : "Cancel",
+  "DELETE_BUTTON" : "Delete",
+
+  "CARDS_TITLE": "公告提醒",
+
+  "SEARCH_TITLE": "Search",
+  "SEARCH_PLACEHOLDER" : "Search the items list, e.g. \"Donald Duck\""
+}
