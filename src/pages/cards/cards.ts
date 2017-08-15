@@ -8,6 +8,7 @@ import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
 })
 export class CardsPage {
   cardItems: any[];
+  result : any = 1;
 
   constructor(public navCtrl: NavController, public redditService: RedditDataProvider) {
     this.cardItems = [
@@ -40,12 +41,18 @@ export class CardsPage {
       }
     ];
 
-    this.ioViewOidLoad();
-
 
   }
-ioViewOidLoad(){
-  this.redditService.getRemoteData(); 
-}
+
+  doRefresh(refresher) {
+    this.redditService.getRemoteData().subscribe(
+                data => {
+                    this.result = data; 
+                    console.log(data);
+                    refresher.complete();
+                }
+    );
+
+  }
   
 }

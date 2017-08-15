@@ -18,7 +18,9 @@ export class RedditDataProvider {
   }
 
   getRemoteData(){
-  	this.http.get('https://www.reddit.com/r/gifs/top/.json').map(res => res.json()).subscribe(data =>{ console.log(data.kind)});
+  	 var url = 'https://www.reddit.com/r/gifs/top/.json';
+  	 var response = this.http.get(url).map(res => res.json());
+        return response;
   }
 
 }
