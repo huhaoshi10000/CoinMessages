@@ -1,13 +1,25 @@
 {
   "websites":[
     {
-      "name":"???",
+      "name":"云币网",
       "id": "YB",
-      "logo":""
+      "logo":"",
+      "option":"option1"
     },{
-      "name":"???",
+      "name":"比特儿",
       "id": "BTR",
-      "logo": ""
+      "logo": "",
+      "option":"option2"
+    },{
+      "name":"币安",
+      "id": "BA",
+      "logo": "",
+      "option":"option3"
+    },{
+      "name":"火币网",
+      "id": "HB",
+      "logo": "",
+      "option":"option4"
     }
   ]
 }
