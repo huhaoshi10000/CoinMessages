@@ -19,8 +19,7 @@ export class RedditDataProvider {
 
  /* var url = 'https://public-api.wordpress.com/rest/v1/freshly-pressed/'; */
 
-  getRemoteData(){
-  	 var url = '../assets/json/data.json';
+  getRemoteData(url){
   	 var response = this.http.get(url).map(res => res.json());
         return response;
   }

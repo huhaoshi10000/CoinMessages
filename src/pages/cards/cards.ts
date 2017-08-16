@@ -13,14 +13,14 @@ export class CardsPage {
   }
 
   doRefresh(refresher) {
-    this.redditService.getRemoteData().subscribe(
+    var url = '../assets/json/data.json';
+    this.redditService.getRemoteData(url).subscribe(
                 data => {
                     this.cardItems = data.posts;
                     console.log(data);
                     refresher.complete();
                 }
     );
-
   }
   
 }

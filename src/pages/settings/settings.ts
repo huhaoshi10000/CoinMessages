@@ -5,6 +5,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Settings } from '../../providers/settings';
 
 import { TranslateService } from '@ngx-translate/core';
+import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -31,6 +32,7 @@ export class SettingsPage {
   page: string = 'main';
   pageTitleKey: string = 'SETTINGS_TITLE';
   pageTitle: string;
+  settingList: any;
 
   subSettings: any = SettingsPage;
 
@@ -38,7 +40,15 @@ export class SettingsPage {
     public settings: Settings,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
-    public translate: TranslateService) {
+    public translate: TranslateService,
+    public redditService: RedditDataProvider) {
+    var url = '../assets/json/settingList.json';
+    this.redditService.getRemoteData(url).subscribe(
+            data => {
+          this.settingList = data.websites;
+              console.log(data.websites);
+        }
+    );
   }
 
   _buildForm() {
