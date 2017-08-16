@@ -8,32 +8,32 @@
 
 
 <ion-content>
-  <form (submit)="doLogin()">
-    <ion-list>
+  <div *ngIf="showLogin">
+    <ion-item>
+      <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </div>
 
-      <!--
-      Want to use a Username instead of an Email? Here you go:
+  <div *ngIf="!showLogin">
 
-      <ion-item>
-        <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
-      </ion-item>
-      -->
+    <ion-item>
+      <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
-      <div padding>
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
-      </div>
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </div>
 
-    </ion-list>
-  </form>
+  <button ion-button color="primary" full (click)="doLogin()">Login</button>
+  <button ion-button color="primary" full (click)="doRegister()">Register</button>
+
 </ion-content>
