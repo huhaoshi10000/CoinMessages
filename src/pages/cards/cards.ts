@@ -10,6 +10,7 @@ export class CardsPage {
   cardItems: any[];
 
   constructor(public navCtrl: NavController, public redditService: RedditDataProvider) {
+    this.init();
   }
 
   doRefresh(refresher) {
@@ -19,6 +20,15 @@ export class CardsPage {
                     this.cardItems = data.posts;
                     console.log(data);
                     refresher.complete();
+                }
+    );
+  }
+
+  init() {
+    var url = '../assets/json/data.json';
+    this.redditService.getRemoteData(url).subscribe(
+                data => {
+                    this.cardItems = data.posts;
                 }
     );
   }
