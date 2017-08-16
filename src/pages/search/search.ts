@@ -7,6 +7,8 @@ import { Item } from '../../models/item';
 
 import { Items } from '../../providers/providers';
 
+import { Settings } from '../../providers/settings';
+
 
 @Component({
   selector: 'page-search',
@@ -16,7 +18,9 @@ export class SearchPage {
   
   currentItems: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
+  settingValue : any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public settings: Settings) { }
 
   /**
    * Perform a service for the proper items.
@@ -30,6 +34,10 @@ export class SearchPage {
     this.currentItems = this.items.query({
       name: val
     });
+  }
+
+  press() {
+    console.log(this.settings.load());
   }
 
   /**
