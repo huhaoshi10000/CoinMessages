@@ -56,7 +56,17 @@ export class SettingsPage {
       option1: [this.options.option1],
       option2: [this.options.option2],
       option3: [this.options.option3],
-      option4: [this.options.option4]
+      option4: [this.options.option4],
+      option5: [this.options.option5],
+      option6: [this.options.option6],
+      option7: [this.options.option7],
+      option8: [this.options.option8],
+      option9: [this.options.option9],
+      option10: [this.options.option10],
+      option11: [this.options.option11],
+      option12: [this.options.option12],
+      option13: [this.options.option13],
+      option14: [this.options.option14]
     };
 
     this.form = this.formBuilder.group(group);

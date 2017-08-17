@@ -20,6 +20,56 @@
       "id": "HB",
       "logo": "",
       "option":"option4"
+    },{
+      "name":"币行Okcoin",
+      "id": "OK",
+      "logo": "",
+      "option":"option5"
+    },{
+      "name":"中国比特币",
+      "id": "CH",
+      "logo": "",
+      "option":"option6"
+    },{
+      "name":"比特币交易网",
+      "id": "BT",
+      "logo": "",
+      "option":"option7"
+    },{
+      "name":"比特时代",
+      "id": "BTSD",
+      "logo": "",
+      "option":"option8"
+    },{
+      "name":"元宝网",
+      "id": "YB",
+      "logo": "",
+      "option":"option9"
+    },{
+      "name":"聚币网",
+      "id": "JB",
+      "logo": "",
+      "option":"option10"
+    },{
+      "name":"币久网",
+      "id": "BJW",
+      "logo": "",
+      "option":"option11"
+    },{
+      "name":"币交所",
+      "id": "BJS",
+      "logo": "",
+      "option":"option12"
+    },{
+      "name":"大红火",
+      "id": "DHH",
+      "logo": "",
+      "option":"option13"
+    },{
+      "name":"币8网",
+      "id": "B8",
+      "logo": "",
+      "option":"option14"
     }
   ]
 }

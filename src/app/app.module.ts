@@ -55,7 +55,17 @@ export function provideSettings(storage: Storage) {
     option1: true,
     option2: true,
     option3: true,
-    option4: true
+    option4: true,
+    option5: true,
+    option6: true,
+    option7: true,
+    option8: true,
+    option9: true,
+    option10: true,
+    option11: true,
+    option12: true,
+    option13: true,
+    option14: true
   });
 }
 

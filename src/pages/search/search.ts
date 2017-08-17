@@ -37,7 +37,10 @@ export class SearchPage {
   }
 
   press() {
-    console.log(this.settings.load());
+  this.settings.load().then((data) => {
+    console.log(data);
+  });
+
   }
 
   /**
