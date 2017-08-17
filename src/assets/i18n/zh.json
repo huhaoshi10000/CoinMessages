@@ -30,7 +30,7 @@
 
   "WELCOME_INTRO" : "欢迎来到币提醒！",
 
-  "SETTINGS_TITLE": "Settings",
+  "SETTINGS_TITLE": "设置",
   "SETTINGS_OPTION1": "Option 1",
   "SETTINGS_OPTION2": "Option 2",
   "SETTINGS_OPTION3": "Option 3",
@@ -40,7 +40,7 @@
 
   "SETTINGS_PAGE_PROFILE": "Edit Profile",
 
-  "WELCOME_TITLE": "Welcome",
+  "WELCOME_TITLE": "欢迎来到币提醒！",
 
   "LOGIN_TITLE": "登录",
   "LOGIN_ERROR": "登陆失败，请查验账号密码",
@@ -57,12 +57,12 @@
   "ITEM_NAME_PLACEHOLDER" : "Name",
   "ITEM_ABOUT_PLACEHOLDER" : "About",
 
-  "DONE_BUTTON" : "Done",
-  "CANCEL_BUTTON" : "Cancel",
-  "DELETE_BUTTON" : "Delete",
+  "DONE_BUTTON" : "确认",
+  "CANCEL_BUTTON" : "取消",
+  "DELETE_BUTTON" : "删除",
 
   "CARDS_TITLE": "公告提醒",
 
-  "SEARCH_TITLE": "Search",
+  "SEARCH_TITLE": "搜索",
   "SEARCH_PLACEHOLDER" : "Search the items list, e.g. \"Donald Duck\""
 }

@@ -9,7 +9,7 @@
 
 
 <ion-content>
-<ion-refresher (ionRefresh)="doRefresh($event)">
+<ion-refresher pulling-text="????" (ionRefresh)="doRefresh($event)">
      <ion-refresher-content></ion-refresher-content>
 </ion-refresher>
   <ion-card *ngFor="let item of cardItems">
@@ -22,10 +22,11 @@
       <p>{{item.time}}</p>
     </ion-item>
 
-    
+
 
     <ion-card-content>
-        <h1>{{item.title}}</h1>
+      <h1>{{item.title}}</h1>
+      <br/><br/>
       <div [innerHTML]="item.content"></div>
     </ion-card-content>
 
