@@ -19,6 +19,7 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { WelcomePage } from '../pages/welcome/welcome';
 
 import { Settings } from '../providers/providers';
+import { JPush } from 'ionic3-jpush';
 
 import { TranslateService } from '@ngx-translate/core'
 
@@ -46,8 +47,9 @@ export class MyApp {
     { title: 'Search', component: SearchPage }
   ]
 
-  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush : JPush) {
     this.initTranslate();
+    this.jpush.init();
   }
 
   ionViewDidLoad() {

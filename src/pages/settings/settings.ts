@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Settings } from '../../providers/settings';
-
+import { JPush } from 'ionic3-jpush';
 import { TranslateService } from '@ngx-translate/core';
 import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
 
@@ -41,13 +41,14 @@ export class SettingsPage {
     public formBuilder: FormBuilder,
     public navParams: NavParams,
     public translate: TranslateService,
-    public redditService: RedditDataProvider) {
+    public redditService: RedditDataProvider,
+    public jpush: JPush) {
     var url = '../assets/json/settingList.json';
     this.redditService.getRemoteData(url).subscribe(
-            data => {
-          this.settingList = data.websites;
-              console.log(data.websites);
-        }
+      data => {
+        this.settingList = data.websites;
+        console.log(data.websites);
+      }
     );
   }
 
@@ -104,4 +105,17 @@ export class SettingsPage {
   ngOnChanges() {
     console.log('Ng All Changes');
   }
+
+  // jpushTagSet() {
+  //   let jpushArray: string[];
+  //   this.settings.load().then((data) => {
+  //     data.forEach(element => {
+  //       if(element.value == true){
+  //         jpushArray.concat(element);
+  //       }
+  //     });
+  //   console.log(jpushArray);
+  //   this.jpush.setTags(jpushArray);
+  // });
+  // }
 }
