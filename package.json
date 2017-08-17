@@ -66,7 +66,7 @@
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
             "jpush-phonegap-plugin": {
-                "APP_KEY": "3de752ecf0e4db1dc9fee3e7"
+                "APP_KEY": "f3422ae6d945cdc664665a2d"
             }
         },
         "platforms": [
