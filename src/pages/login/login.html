@@ -33,7 +33,8 @@
     </ion-item>
   </div>
 
-  <button ion-button color="primary" full (click)="doLogin()">Login</button>
-  <button ion-button color="primary" full (click)="doRegister()">Register</button>
+  <button *ngIf= "showLogin" ion-button color="primary" full (click)="doLogin()">登陆</button>
+  <button *ngIf="showLogin" ion-button color="primary" full (click)="doShowRegister()">还没注册？</button>
+  <button *ngIf="showRegister" ion-button color="primary" full (click)="doRegister()">注册</button>  
 
 </ion-content>
