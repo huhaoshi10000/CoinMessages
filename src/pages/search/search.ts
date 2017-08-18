@@ -36,10 +36,10 @@ export class SearchPage {
     });
   }
 
-  settingPara : string = "";
+  settingPara : string;
   press() {
   this.settings.load().then((data) => {
-
+    this.settingPara = "";
     for (var key in data) {
         if (key === "list")
           continue;
