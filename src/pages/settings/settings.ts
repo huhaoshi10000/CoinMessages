@@ -42,7 +42,7 @@ export class SettingsPage {
     public navParams: NavParams,
     public translate: TranslateService,
     public redditService: RedditDataProvider) {
-    var url = '../assets/json/settingList.json';
+    var url = 'assets/json/settingList.json';
     this.redditService.getRemoteData(url).subscribe(
             data => {
           this.settingList = data.websites;

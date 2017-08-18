@@ -36,11 +36,19 @@ export class SearchPage {
     });
   }
 
+  settingPara : string;
   press() {
   this.settings.load().then((data) => {
-    console.log(data);
+    for (var key in data) {
+      if (data.hasOwnProperty(key)) {
+        if (data[key])
+          this.settingPara + 1;
+        else 
+          this.settingPara + 0;
+      }
+    }
   });
-
+  console.log(this.settingPara);
   }
 
   /**
