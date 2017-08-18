@@ -66,7 +66,23 @@ export function provideSettings(storage: Storage) {
     option11: true,
     option12: true,
     option13: true,
-    option14: true
+    option14: true,
+    list: [
+      "option1",
+      "option2",
+      "option3",
+      "option4",
+      "option5",
+      "option6",
+      "option7",
+      "option8",
+      "option9",
+      "option10",
+      "option11",
+      "option12",
+      "option13",
+      "option14"
+    ]
   });
 }
 

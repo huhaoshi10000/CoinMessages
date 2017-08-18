@@ -42,7 +42,7 @@ export class CardsPage {
     }
 
     deleteItem(item){
-        
+
     }
 
   

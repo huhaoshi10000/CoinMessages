@@ -33,7 +33,7 @@ export class SettingsPage {
   pageTitleKey: string = 'SETTINGS_TITLE';
   pageTitle: string;
   settingList: any;
-
+  settingMap:any;
   subSettings: any = SettingsPage;
 
   constructor(public navCtrl: NavController,
@@ -47,7 +47,7 @@ export class SettingsPage {
     this.redditService.getRemoteData(url).subscribe(
       data => {
         this.settingList = data.websites;
-        console.log(data.websites);
+        this.settingMap = data.map;
       }
     );
   }
@@ -67,13 +67,22 @@ export class SettingsPage {
       option11: [this.options.option11],
       option12: [this.options.option12],
       option13: [this.options.option13],
-      option14: [this.options.option14]
+      option14: [this.options.option14],
+      list: [this.options.list]
     };
 
     this.form = this.formBuilder.group(group);
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
+      this.form.value.list = [];
+      for (let key in this.form.value) {
+        if (key === "list")
+        continue;
+        if(this.form.value[key]){
+          this.form.value.list.push(key);
+        }
+      }
       this.settings.merge(this.form.value);
     });
   }
@@ -97,7 +106,6 @@ export class SettingsPage {
     this.settings.load().then(() => {
       this.settingsReady = true;
       this.options = this.settings.allSettings;
-      console.log(this.options);
       this._buildForm();
     });
   }
