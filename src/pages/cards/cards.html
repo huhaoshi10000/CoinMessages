@@ -8,11 +8,11 @@
 </ion-header>
 
 
-<ion-content>
-<ion-refresher pulling-text="下拉刷新" (ionRefresh)="doRefresh($event)">
+<!--<ion-content>-->
+<!--<ion-refresher pulling-text="下拉刷新" (ionRefresh)="doRefresh($event)">
      <ion-refresher-content></ion-refresher-content>
-</ion-refresher>
-  <ion-card *ngFor="let item of cardItems">
+</ion-refresher>-->
+  <!--<ion-card *ngFor="let item of cardItems">
 
     <ion-item>
       <ion-avatar item-start>
@@ -30,5 +30,31 @@
       <div [innerHTML]="item.content"></div>
     </ion-card-content>
 
-  </ion-card>
+  </ion-card>-->
+<!--</ion-content>-->
+
+
+<ion-content>
+
+  <ion-refresher pulling-text="下拉刷新" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of cardItems">
+      <button ion-item (click)="openItem(item)">
+        <ion-avatar item-start>
+          <img [src]="item.website.logo" />
+        </ion-avatar>
+        <h2>{{item.website.name}}</h2>
+        <p>{{item.title}}</p>
+        <ion-note item-end *ngIf="item.note">{{item.title}}</ion-note>
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

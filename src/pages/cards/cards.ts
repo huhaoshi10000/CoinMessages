@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
+import { ItemDetailPage } from '../item-detail/item-detail';
 
 @Component({
   selector: 'page-cards',
@@ -33,5 +34,16 @@ export class CardsPage {
                 }
     );
   }
+
+    openItem(item){
+        this.navCtrl.push(ItemDetailPage, {
+            item: item
+        });
+    }
+
+    deleteItem(item){
+        
+    }
+
   
 }

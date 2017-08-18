@@ -7,7 +7,7 @@
 </ion-header>
 
 
-<ion-content>
+<!--<ion-content>
   <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
   </div>
 
@@ -15,4 +15,26 @@
     <h2>{{item.name}}</h2>
     <p>{{item.about}}</p>
   </div>
+</ion-content>-->
+
+<ion-content>
+<ion-card>
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img [src]="item.website.logo">
+    </ion-avatar>
+    <h2>{{item.website.name}}</h2>
+    <p>{{item.time}}</p>
+  </ion-item>
+
+
+
+  <ion-card-content>
+    <h1>{{item.title}}</h1>
+    <br/><br/>
+    <div [innerHTML]="item.content"></div>
+  </ion-card-content>
+
+</ion-card>
 </ion-content>
