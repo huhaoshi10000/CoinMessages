@@ -86,10 +86,10 @@ export class SettingsPage {
       }
       this.settings.merge(this.form.value);
     });
-    this.settings.load().then(data=> 
-      this.jpushArray= data.list)
-    console.log(this.jpushArray);
-    this.jpush.setTags(this.jpushArray);
+    this.settings.load().then(data=> {
+      this.jpush.setTags(data.list);
+      console.log(data.list);
+    })
   }
 
   ionViewDidLoad() {
