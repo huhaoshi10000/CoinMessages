@@ -44,13 +44,15 @@ export class SearchPage {
     for (var key in data) {
         if (key === "list")
           continue;
-        if (data[key])
-          this.settingPara = this.settingPara + "1";
+        if (data[key]) {
+             this.settingPara = this.settingPara + "1";
+             console.log(key);
+        }       
         else 
           this.settingPara = this.settingPara + "0";
     }
     console.log(this.settingPara);
-    console.log(parseInt(this.settingPara,2));
+    console.log(parseInt(this.settingPara.split("").reverse().join(""),2));
   });
 
   }

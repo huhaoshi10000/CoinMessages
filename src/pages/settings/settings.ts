@@ -114,6 +114,7 @@ export class SettingsPage {
     console.log('Ng All Changes');
   }
 
+
   // jpushTagSet() {
   //   let jpushArray: string[];
   //   this.settings.load().then((data) => {
