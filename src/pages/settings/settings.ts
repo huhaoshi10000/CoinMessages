@@ -80,7 +80,7 @@ export class SettingsPage {
         if (key === "list")
         continue;
         if(this.form.value[key]){
-          this.form.value.list.push(key);
+          this.form.value.list.push(this.settingMap[key]);
         }
       }
       this.settings.merge(this.form.value);

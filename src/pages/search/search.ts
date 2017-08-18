@@ -39,6 +39,7 @@ export class SearchPage {
   settingPara : string;
   press() {
   this.settings.load().then((data) => {
+    console.log(data);
     this.settingPara = "";
     for (var key in data) {
         if (key === "list")
