@@ -39,15 +39,17 @@ export class SearchPage {
   settingPara : string = "";
   press() {
   this.settings.load().then((data) => {
-    console.log(data);
+
     for (var key in data) {
-
+        if (key === "list")
+          continue;
         if (data[key])
-          this.settingPara = this.settingPara + '1';
+          this.settingPara = this.settingPara + "1";
         else 
-          this.settingPara = this.settingPara + '0';
+          this.settingPara = this.settingPara + "0";
     }
-
+    console.log(this.settingPara);
+    console.log(parseInt(this.settingPara,2));
   });
 
   }

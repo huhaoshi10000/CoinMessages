@@ -16,7 +16,7 @@ export class CardsPage {
 
   doRefresh(refresher) {
    
-    var url = 'http://120.27.15.227:3389/api/getNews?identity=1&number=10';
+    var url = 'http://120.27.15.227:3389/api/getNews?identity=1&number=1';
     this.redditService.getRemoteData(url).subscribe(
                 data => {
                     this.cardItems = data.posts;
@@ -27,7 +27,7 @@ export class CardsPage {
   }
 
   init() {
-    var url = 'http://120.27.15.227:3389/api/getNews?identity=1&number=10';
+    var url = 'http://120.27.15.227:3389/api/getNews?identity=1&number=1';
     this.redditService.getRemoteData(url).subscribe(
                 data => {
                     this.cardItems = data.posts;
