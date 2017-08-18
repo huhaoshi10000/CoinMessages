@@ -26,7 +26,7 @@ export class CardsPage {
   }
 
   init() {
-    var url = 'assets/json/data.json';
+    var url = 'http://120.27.15.227:3389/api/getNews?identity=1&number=10';
     this.redditService.getRemoteData(url).subscribe(
                 data => {
                     this.cardItems = data.posts;

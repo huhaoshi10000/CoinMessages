@@ -37,6 +37,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RedditDataProvider } from '../providers/reddit-data/reddit-data';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { JPush } from 'ionic3-jpush';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -133,6 +134,7 @@ const cloudSettings: CloudSettings = {
     GoogleMaps,
     SplashScreen,
     StatusBar,
+    JPush,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
