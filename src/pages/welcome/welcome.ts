@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { JPush } from 'ionic3-jpush';
 
 
 import { LoginPage } from '../login/login';
@@ -18,11 +17,10 @@ import { SignupPage } from '../signup/signup';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController, private jpush: JPush) { }
+  constructor(public navCtrl: NavController) { }
 
   login() {
     this.navCtrl.push(LoginPage);
-    this.jpush.setTags(["d"]);    
   }
 
   // signup() {
