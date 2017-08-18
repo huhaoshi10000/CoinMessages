@@ -35,6 +35,7 @@ export class SettingsPage {
   settingList: any;
   settingMap:any;
   subSettings: any = SettingsPage;
+  jpushArray: string[];
 
   constructor(public navCtrl: NavController,
     public settings: Settings,
@@ -85,6 +86,10 @@ export class SettingsPage {
       }
       this.settings.merge(this.form.value);
     });
+    this.settings.load().then(data=> 
+      this.jpushArray= data.list)
+    console.log(this.jpushArray);
+    this.jpush.setTags(this.jpushArray);
   }
 
   ionViewDidLoad() {
