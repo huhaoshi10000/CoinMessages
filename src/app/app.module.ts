@@ -21,6 +21,9 @@ import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { SettingHomePage} from '../pages/setting-home/setting-home';
+import {JpushSettingPage} from '../pages/jpush-setting/jpush-setting'
+
 
 import { Api } from '../providers/api';
 import { Items } from '../mocks/providers/items';
@@ -108,7 +111,9 @@ const cloudSettings: CloudSettings = {
     SignupPage,
     TabsPage,
     TutorialPage,
-    WelcomePage
+    WelcomePage,
+    SettingHomePage,
+    JpushSettingPage
   ],
   imports: [
     BrowserModule,
@@ -140,7 +145,9 @@ const cloudSettings: CloudSettings = {
     SignupPage,
     TabsPage,
     TutorialPage,
-    WelcomePage
+    WelcomePage,
+    SettingHomePage,
+    JpushSettingPage
   ],
   providers: [
     Api,

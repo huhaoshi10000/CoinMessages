@@ -3,10 +3,13 @@ import { NavController, ModalController } from 'ionic-angular';
 
 import { ItemCreatePage } from '../item-create/item-create';
 import { ItemDetailPage } from '../item-detail/item-detail';
+import {SettingsPage} from '../settings/settings';
+import {JpushSettingPage} from '../jpush-setting/jpush-setting'
 
 import { Items } from '../../providers/providers';
 
 import { Item } from '../../models/item';
+
 
 @Component({
   selector: 'page-list-master',
@@ -49,9 +52,14 @@ export class ListMasterPage {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
-    this.navCtrl.push(ItemDetailPage, {
-      item: item
-    });
+  openItem(item: string) {
+    // this.navCtrl.push(ItemDetailPage, {
+    //   item: item
+    // });
+    if(item == "推送网站设置" ){
+      this.navCtrl.push(SettingsPage);
+    }else{
+    this.navCtrl.push(JpushSettingPage);
+    }
   }
 }
