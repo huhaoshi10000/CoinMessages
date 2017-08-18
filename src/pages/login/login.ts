@@ -75,9 +75,6 @@ export class LoginPage {
 
       this.auth.login('basic', { 'email': this.email, 'password': this.password }).then(() => {
         loader.dismissAll();
-        this.alertCtrl.create({
-          title: '登陆成功'
-        }).present();
 
         this.navCtrl.push(MainPage);
 
