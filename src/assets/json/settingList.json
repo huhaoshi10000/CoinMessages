@@ -1,7 +1,7 @@
 {
   "websites":[
     {
-      "name":"云�?网",
+      "name":"云币网",
       "id": "YB",
       "logo":"",
       "option":"option1"
@@ -11,27 +11,27 @@
       "logo": "",
       "option":"option2"
     },{
-      "name":"�?安",
+      "name":"币安",
       "id": "BA",
       "logo": "",
       "option":"option3"
     },{
-      "name":"�?��?网",
+      "name":"火币网",
       "id": "HB",
       "logo": "",
       "option":"option4"
     },{
-      "name":"�?行Okcoin",
+      "name":"币行Okcoin",
       "id": "OK",
       "logo": "",
       "option":"option5"
     },{
-      "name":"中国比特�?",
+      "name":"中国比特币",
       "id": "CH",
       "logo": "",
       "option":"option6"
     },{
-      "name":"比特�?交易网",
+      "name":"比特币交易网",
       "id": "BT",
       "logo": "",
       "option":"option7"
@@ -41,32 +41,32 @@
       "logo": "",
       "option":"option8"
     },{
-      "name":"元�?网",
-      "id": "YB",
+      "name":"元宝网‘",
+      "id": "YBW",
       "logo": "",
       "option":"option9"
     },{
-      "name":"�?��?网",
+      "name":"聚币网",
       "id": "JB",
       "logo": "",
       "option":"option10"
     },{
-      "name":"�?久网",
+      "name":"币九网",
       "id": "BJW",
       "logo": "",
       "option":"option11"
     },{
-      "name":"�?交所",
+      "name":"币交所",
       "id": "BJS",
       "logo": "",
       "option":"option12"
     },{
-      "name":"大红�?�",
+      "name":"大红火",
       "id": "DHH",
       "logo": "",
       "option":"option13"
     },{
-      "name":"�?8网",
+      "name":"币8网",
       "id": "B8",
       "logo": "",
       "option":"option14"
@@ -81,7 +81,7 @@
     "option6":"CH",
     "option7":"BT",
     "option8":"BTSD",
-    "option9":"YB",
+    "option9":"YBW",
     "option10":"JB",
     "option11":"BJW",
     "option12":"BJS",
