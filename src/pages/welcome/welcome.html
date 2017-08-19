@@ -6,7 +6,42 @@
       {{ 'WELCOME_INTRO' | translate }}
     </div>
   </div>
-  <div padding>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
-  </div>
+  <div *ngIf="showLogin" class="center">
+      <ion-item>
+        <ion-input type="email" placeholder="邮箱" [(ngModel)]="email"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input type="password" placeholder="密码" [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </div>
+  
+    <div *ngIf="!showLogin">
+  
+      <ion-item>
+        <ion-input type="text" placeholder="用户名" [(ngModel)]="name"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input type="email" placeholder="邮箱" [(ngModel)]="email"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input type="password" placeholder="密码" [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </div>
+  
+    <div *ngIf="showLogin">
+      <!-- <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->
+    
+          
+      <button ion-button     (click)="doLogin()" class="login">登陆</button>
+    </div>
+    
+    <div *ngIf="showLogin">
+      <button ion-button     (click)="doShowRegister()" class="login">还没注册？</button>
+    </div>
+    <div *ngIf="showRegister">
+      <button ion-button     (click)="doRegister()" class="login">注册</button>
+    </div>
 </ion-content>

@@ -17,10 +17,6 @@ export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
-  };
 
   // Our translated text strings
   private loginErrorString: string;
@@ -50,7 +46,7 @@ export class LoginPage {
       }
 
       let loader = this.loadingCtrl.create({
-        content: "Logging in..."
+        content: "登陆中..."
       });
       loader.present();
 
