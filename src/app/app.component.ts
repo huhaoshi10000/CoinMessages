@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Platform, Nav, Config } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,6 +22,10 @@ import { Settings } from '../providers/providers';
 import { JPush } from 'ionic3-jpush';
 
 import { TranslateService } from '@ngx-translate/core'
+import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
+import { AlertController } from 'ionic-angular';
+import { MainPage } from '../pages/pages';
+
 
 @Component({
   template: `<meta charset="utf-8"/>
@@ -30,7 +34,7 @@ import { TranslateService } from '@ngx-translate/core'
 })
 export class MyApp {
 
-  rootPage : any ;
+  rootPage: any;
 
   @ViewChild(Nav) nav: Nav;
 
@@ -49,17 +53,48 @@ export class MyApp {
     { title: 'Search', component: SearchPage }
   ]
 
-  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush : JPush, public storage: Storage) {
-    
-    storage.get("skipTutorial").then(settings => {
-        if (settings === "89757") 
-          this.rootPage = WelcomePage;
-        else 
-          this.rootPage = FirstRunPage;
-    });
-      
+  constructor(private alertCtrl: AlertController, private auth: Auth, private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush: JPush, public storage: Storage) {
     this.initTranslate();
     this.jpush.init();
+
+    this.storage.get("skipTutorial").then(settings => {
+      if (settings === "89757")
+        this.authOnStart();
+      else
+        this.rootPage = FirstRunPage;
+    });
+  }
+
+  // ngOnInit() {
+  //   this.storage.get("skipTutorial").then(settings => {
+  //     if (settings === "89757")
+  //       this.rootPage = WelcomePage;
+  //     else
+  //       this.rootPage = FirstRunPage;
+  //   });
+
+
+  // }
+
+  authOnStart() {
+    this.storage.get('loginDetails').then((detail) => {
+      // console.log(detail);
+      this.auth.login('basic', detail).then(() => {
+        // this.navCtrl.push(MainPage);
+        this.rootPage = MainPage;
+      }, (err) => {
+        console.log(err.message);
+        let errors = '';
+        if (err.message === 'UNPROCESSABLE ENTITY') errors += 'Email isn\'t valid.<br/>';
+        if (err.message === 'UNAUTHORIZED') errors += 'Password is required.<br/>';
+        let alert = this.alertCtrl.create({
+          title: '登陆失败',
+          subTitle: errors,
+          buttons: ['重新登录']
+        });
+        alert.present();
+      });
+    })
   }
 
   ionViewDidLoad() {

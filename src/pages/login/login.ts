@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { MainPage } from '../../pages/pages';
+  import { MainPage } from '../../pages/pages';
 
 
 import { TranslateService } from '@ngx-translate/core';
 import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 import { NavController, AlertController, ToastController, LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class LoginPage {
   password: string = '';
   name: string = '';
 
-  constructor(public navCtrl: NavController, public auth: Auth, public user: User, public alertCtrl: AlertController, public loadingCtrl: LoadingController) { }
+  constructor(private storage: Storage, public navCtrl: NavController, public auth: Auth, public user: User, public alertCtrl: AlertController, public loadingCtrl: LoadingController) { }
 
   // constructor(public navCtrl: NavController,
   //   public user: User,
@@ -75,9 +76,8 @@ export class LoginPage {
 
       this.auth.login('basic', { 'email': this.email, 'password': this.password }).then(() => {
         loader.dismissAll();
-
         this.navCtrl.push(MainPage);
-
+        this.storage.set('loginDetails', { 'email': this.email, 'password': this.password });
       }, (err) => {
         loader.dismissAll();
         console.log(err.message);
@@ -86,9 +86,9 @@ export class LoginPage {
         if (err.message === 'UNAUTHORIZED') errors += 'Password is required.<br/>';
 
         let alert = this.alertCtrl.create({
-          title: 'Login Error',
+          title: '登陆失败',
           subTitle: errors,
-          buttons: ['OK']
+          buttons: ['重新登录']
         });
         alert.present();
       });
