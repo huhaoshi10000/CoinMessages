@@ -17,8 +17,8 @@
   "TUTORIAL_SKIP_BUTTON" : "跳过",
   "TUTORIAL_CONTINUE_BUTTON" : "继续",
 
-  "TUTORIAL_SLIDE1_TITLE": "欢迎来到币提醒！",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>币提醒</b>是一款主打加密货币交易平台公告的实时提醒软件",
+  "TUTORIAL_SLIDE1_TITLE": "欢迎来到币知道！",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "<b>币知道</b>是一款主打加密货币交易平台公告的实时提醒软件",
 
   "TUTORIAL_SLIDE2_TITLE": "10多家主流交易所公告信息，30秒内通知提醒",
   "TUTORIAL_SLIDE2_DESCRIPTION": "最新的新闻资讯，24小时实时更新",
@@ -28,7 +28,7 @@
 
   "TUTORIAL_SLIDE4_TITLE": "准备好体验了吗？",
 
-  "WELCOME_INTRO" : "欢迎来到币提醒！",
+  "WELCOME_INTRO" : "欢迎来到币知道！",
 
   "SETTINGS_TITLE": "设置",
   "SETTINGS_OPTION1": "Option 1",
