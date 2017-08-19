@@ -75,7 +75,8 @@ export class CardsPage {
       }
       console.log(parseInt(this.settingPara.split("").reverse().join(""),2));
       this.settingPara = parseInt(this.settingPara.split("").reverse().join(""),2);
-      this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=10';
+      this.url = "assets/json/data.json";
+     // this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=10';
       this.redditService.getRemoteData(this.url).subscribe(
                 data => {
                     this.cardItems = data.posts;
