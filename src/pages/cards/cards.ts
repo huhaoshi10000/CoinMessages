@@ -48,10 +48,16 @@ export class CardsPage {
      
       
       console.log(this.settingPara);
-      this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=10';
+      this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=20';
       this.redditService.getRemoteData(this.url).subscribe(
                 data => {
                     this.cardItems = data.posts;
+                    for (let i in this.cardItems) {
+                    if (this.cardItems[i].website.code === "BA")
+                       this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".svg";
+                    else
+                       this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
+                    } 
                 }
       
     );
@@ -75,11 +81,17 @@ export class CardsPage {
       }
       console.log(parseInt(this.settingPara.split("").reverse().join(""),2));
       this.settingPara = parseInt(this.settingPara.split("").reverse().join(""),2);
-      this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=10';
+      //this.url = "assets/json/data.json";
+      this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=20';
       this.redditService.getRemoteData(this.url).subscribe(
                 data => {
                     this.cardItems = data.posts;
-                    console.log(data);
+                    for (let i in this.cardItems) {
+                    if (this.cardItems[i].website.code === "BA")
+                       this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".svg";
+                    else
+                       this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
+                    } 
                     refresher.complete();
                 }
     );
