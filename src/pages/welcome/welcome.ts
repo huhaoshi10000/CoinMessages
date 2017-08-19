@@ -61,6 +61,8 @@ export class WelcomePage {
 
         let toast = this.toastCtrl.create({
           message: '登陆失败',
+          showCloseButton: true,
+          closeButtonText: '确认',
           position: 'top'                 
         });
         toast.present();
@@ -100,7 +102,9 @@ export class WelcomePage {
           loader.dismissAll();
           this.toastCtrl.create({
             message: '注册成功',
-            position: 'top'
+            position: 'top',
+            showCloseButton: true,
+            closeButtonText: '确认'
           }).present();
         });
         return this.auth.login('basic', { 'email': details.email, 'password': details.password }).then(() => {
@@ -122,7 +126,9 @@ export class WelcomePage {
         }
         let toast = this.toastCtrl.create({
           message: '注册失败',
-          position: 'top'
+          position: 'top',
+          showCloseButton: true,
+          closeButtonText: '确认'
         });
         toast.present();
       });
