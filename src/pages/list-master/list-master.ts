@@ -5,6 +5,9 @@ import { ItemCreatePage } from '../item-create/item-create';
 import { ItemDetailPage } from '../item-detail/item-detail';
 import {SettingsPage} from '../settings/settings';
 import {JpushSettingPage} from '../jpush-setting/jpush-setting'
+import {UsermanualPage} from '../usermanual/usermanual'
+import {ContatInfoPage} from '../contat-info/contat-info'
+
 
 import { Items } from '../../providers/providers';
 
@@ -56,10 +59,26 @@ export class ListMasterPage {
     // this.navCtrl.push(ItemDetailPage, {
     //   item: item
     // });
-    if(item == "推送网站设置" ){
-      this.navCtrl.push(SettingsPage);
-    }else{
-    this.navCtrl.push(JpushSettingPage);
-    }
+    switch(item) { 
+      case "推送网站设置": { 
+        this.navCtrl.push(SettingsPage);
+        break;
+      } 
+      case "推送设置": { 
+        this.navCtrl.push(JpushSettingPage);
+        break; 
+      }
+      case "使用手册": { 
+        this.navCtrl.push(UsermanualPage);
+        break; 
+      }  
+      case "联系我们": { 
+        this.navCtrl.push(ContatInfoPage);
+        break; 
+      }  
+      default: { 
+         break; 
+      } 
+   } 
   }
 }

@@ -24,6 +24,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { SettingHomePage} from '../pages/setting-home/setting-home';
 import {JpushSettingPage} from '../pages/jpush-setting/jpush-setting'
 import {EveryWelcomePage} from '../pages/every-welcome/every-welcome'
+import {UsermanualPage} from '../pages/usermanual/usermanual'
+import {ContatInfoPage} from '../pages/contat-info/contat-info'
 
 
 import { Api } from '../providers/api';
@@ -115,7 +117,9 @@ const cloudSettings: CloudSettings = {
     WelcomePage,
     SettingHomePage,
     JpushSettingPage,
-    EveryWelcomePage
+    EveryWelcomePage,
+    UsermanualPage,
+    ContatInfoPage
   ],
   imports: [
     BrowserModule,
@@ -150,7 +154,9 @@ const cloudSettings: CloudSettings = {
     WelcomePage,
     SettingHomePage,
     JpushSettingPage,
-    EveryWelcomePage
+    EveryWelcomePage,
+    UsermanualPage,
+    ContatInfoPage
   ],
   providers: [
     Api,

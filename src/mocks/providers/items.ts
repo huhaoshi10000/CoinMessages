@@ -23,6 +23,14 @@ export class Items {
       {
         "name":"推送设置",
         "about": ""     
+      },
+      {
+        "name":"使用手册",
+        "about": ""     
+      },
+      {
+        "name":"联系我们",
+        "about": ""     
       }
     ];
 
