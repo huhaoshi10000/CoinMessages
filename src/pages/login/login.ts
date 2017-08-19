@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
 
 
 import { TranslateService } from '@ngx-translate/core';
-import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
-import { NavController, AlertController, ToastController, LoadingController } from 'ionic-angular';
+import { Auth, User, UserDetails, IDetailedError , } from '@ionic/cloud-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 
@@ -30,7 +30,7 @@ export class LoginPage {
   password: string = '';
   name: string = '';
 
-  constructor(private storage: Storage, public navCtrl: NavController, public auth: Auth, public user: User, public alertCtrl: AlertController, public loadingCtrl: LoadingController) { }
+  constructor(private toastCtrl: ToastController,  private storage: Storage, public navCtrl: NavController, public auth: Auth, public user: User,  public loadingCtrl: LoadingController) { }
 
   // constructor(public navCtrl: NavController,
   //   public user: User,
@@ -60,12 +60,12 @@ export class LoginPage {
       console.log('process login');
 
       if (this.email === '' || this.password === '') {
-        let alert = this.alertCtrl.create({
-          title: 'Register Error',
-          subTitle: 'All fields are rquired',
-          buttons: ['OK']
+        let toast = this.toastCtrl.create({
+          message: this.loginErrorString,
+          position: 'top',
+          showCloseButton: true          
         });
-        alert.present();
+        toast.present();
         return;
       }
 
@@ -85,12 +85,12 @@ export class LoginPage {
         if (err.message === 'UNPROCESSABLE ENTITY') errors += 'Email isn\'t valid.<br/>';
         if (err.message === 'UNAUTHORIZED') errors += 'Password is required.<br/>';
 
-        let alert = this.alertCtrl.create({
-          title: '登陆失败',
-          subTitle: errors,
-          buttons: ['重新登录']
+        let toast = this.toastCtrl.create({
+          message: '登陆失败',
+          position: 'top',
+          showCloseButton: true                    
         });
-        alert.present();
+        toast.present();
       });
     } else {
       this.showLogin = true;
@@ -105,12 +105,12 @@ export class LoginPage {
       do our own initial validation
       */
       if (this.name === '' || this.email === '' || this.password === '') {
-        let alert = this.alertCtrl.create({
-          title: 'Register Error',
-          subTitle: 'All fields are rquired',
-          buttons: ['OK']
+        let toast = this.toastCtrl.create({
+          message: 'Register Error',
+          position: 'top',
+          showCloseButton: true
         });
-        alert.present();
+        toast.present();
         return;
       }
 
@@ -127,8 +127,10 @@ export class LoginPage {
         console.log('ok signup');
         this.auth.login('basic', { 'email': details.email, 'password': details.password }).then(() => {
           loader.dismissAll();
-          this.alertCtrl.create({
-            title: 'success'
+          this.toastCtrl.create({
+            message: '注册成功',
+            position: 'top',
+            showCloseButton: true
           }).present();
         });
         return this.auth.login('basic', { 'email': details.email, 'password': details.password }).then(() => {
@@ -149,12 +151,12 @@ export class LoginPage {
           //don't need to worry about conflict_username
           if (e === 'invalid_email') errors += 'Your email address isn\'t valid.';
         }
-        let alert = this.alertCtrl.create({
-          title: 'Register Error',
-          subTitle: errors,
-          buttons: ['OK']
+        let toast = this.toastCtrl.create({
+          message: 'Register Error',
+          position: 'top',
+          showCloseButton:true
         });
-        alert.present();
+        toast.present();
       });
 
     } else {
