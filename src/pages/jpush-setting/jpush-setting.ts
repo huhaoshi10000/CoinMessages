@@ -18,7 +18,7 @@ export class JpushSettingPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private jpush: JPush) {
   }
-  pushConfigs = "接受推送通知";
+  public pushConfigs = "接受推送通知";
   receivePush = true;
 
   ionViewDidLoad() {
@@ -26,8 +26,12 @@ export class JpushSettingPage {
   }
 
   setReceive(){
-    this.receivePush = !this.receivePush;
-    this.jpush.stopPush();
+    console.log(this.receivePush);
+    if(!this.receivePush){
+      this.jpush.stopPush();
+    }
+    else{
+      this.jpush.resumePush();
+    }
   }
-
 }
