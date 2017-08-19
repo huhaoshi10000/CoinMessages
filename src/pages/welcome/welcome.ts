@@ -44,7 +44,7 @@ export class WelcomePage {
       }
 
       let loader = this.loadingCtrl.create({
-        content: "Logging in..."
+        content: "登陆中..."
       });
       loader.present();
 
