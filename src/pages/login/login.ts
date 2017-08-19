@@ -32,38 +32,18 @@ export class LoginPage {
 
   constructor(private toastCtrl: ToastController,  private storage: Storage, public navCtrl: NavController, public auth: Auth, public user: User,  public loadingCtrl: LoadingController) { }
 
-  // constructor(public navCtrl: NavController,
-  //   public user: User,
-  //   public toastCtrl: ToastController,
-  //   public translateService: TranslateService) {
-
-  //   this.translateService.get('LOGIN_ERROR').subscribe((value) => {
-  //     this.loginErrorString = value;
-  //   })
-  // }
 
   // Attempt to login in through our User service
   doLogin() {
-    //   this.user.login(this.account).subscribe((resp) => {
-    //     this.navCtrl.push(MainPage);
-    //   }, (err) => {
-    //     this.navCtrl.push(MainPage);
-    //     // Unable to log in
-    //     let toast = this.toastCtrl.create({
-    //       message: this.loginErrorString,
-    //       duration: 3000,
-    //       position: 'top'
-    //     });
-    //     toast.present();
-    //   });
     if (this.showLogin) {
       console.log('process login');
 
       if (this.email === '' || this.password === '') {
         let toast = this.toastCtrl.create({
-          message: this.loginErrorString,
+          message: "请填写邮箱及密码",
           position: 'top',
-          showCloseButton: true          
+          showCloseButton: true,
+          closeButtonText: '确认'
         });
         toast.present();
         return;
@@ -87,8 +67,7 @@ export class LoginPage {
 
         let toast = this.toastCtrl.create({
           message: '登陆失败',
-          position: 'top',
-          showCloseButton: true                    
+          position: 'top'                 
         });
         toast.present();
       });
@@ -101,14 +80,12 @@ export class LoginPage {
     if (!this.showLogin) {
       console.log('process register');
 
-      /*
-      do our own initial validation
-      */
       if (this.name === '' || this.email === '' || this.password === '') {
         let toast = this.toastCtrl.create({
-          message: 'Register Error',
+          message: '请填写相应信息',
           position: 'top',
-          showCloseButton: true
+          showCloseButton: true,
+          closeButtonText: '确认'
         });
         toast.present();
         return;
@@ -129,8 +106,7 @@ export class LoginPage {
           loader.dismissAll();
           this.toastCtrl.create({
             message: '注册成功',
-            position: 'top',
-            showCloseButton: true
+            position: 'top'
           }).present();
         });
         return this.auth.login('basic', { 'email': details.email, 'password': details.password }).then(() => {
@@ -148,13 +124,11 @@ export class LoginPage {
           if (e === 'required_email') errors += 'Email is required.<br/>';
           if (e === 'required_password') errors += 'Password is required.<br/>';
           if (e === 'conflict_email') errors += 'A user with this email already exists.<br/>';
-          //don't need to worry about conflict_username
           if (e === 'invalid_email') errors += 'Your email address isn\'t valid.';
         }
         let toast = this.toastCtrl.create({
-          message: 'Register Error',
-          position: 'top',
-          showCloseButton:true
+          message: '注册失败',
+          position: 'top'
         });
         toast.present();
       });
