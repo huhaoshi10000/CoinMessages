@@ -123,6 +123,7 @@ export class LoginPage {
       loader.present();
 
       this.auth.signup(details).then(() => {
+        this.storage.set('loginDetails', { 'email': this.email, 'password': this.password });        
         console.log('ok signup');
         this.auth.login('basic', { 'email': details.email, 'password': details.password }).then(() => {
           loader.dismissAll();

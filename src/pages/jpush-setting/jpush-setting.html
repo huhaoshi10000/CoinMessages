@@ -16,6 +16,6 @@
 <ion-content>
   <ion-item>
     <ion-label>{{pushConfigs}}</ion-label>
-    <ion-toggle color="energized" (click)="setReceive()"></ion-toggle>
+    <ion-toggle color="energized" [(ngModel)]="receivePush" (ionChange)="setReceive()" ></ion-toggle>
   </ion-item>
 </ion-content>
