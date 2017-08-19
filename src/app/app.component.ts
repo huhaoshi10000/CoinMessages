@@ -17,7 +17,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { WelcomePage } from '../pages/welcome/welcome';
-
+import { Storage } from '@ionic/storage';
 import { Settings } from '../providers/providers';
 import { JPush } from 'ionic3-jpush';
 
@@ -25,24 +25,12 @@ import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   template: `<meta charset="utf-8"/>
-  <ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Pages</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
+  
   <ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+
+  rootPage : any ;
 
   @ViewChild(Nav) nav: Nav;
 
@@ -61,7 +49,15 @@ export class MyApp {
     { title: 'Search', component: SearchPage }
   ]
 
-  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush : JPush) {
+  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush : JPush, public storage: Storage) {
+    
+    storage.get("skipTutorial").then(settings => {
+        if (settings === "89757") 
+          this.rootPage = WelcomePage;
+        else 
+          this.rootPage = FirstRunPage;
+    });
+      
     this.initTranslate();
     this.jpush.init();
   }

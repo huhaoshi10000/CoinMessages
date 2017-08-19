@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { Settings } from '../../providers/settings';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -14,13 +15,19 @@ export class CardsPage {
   settingPara: any;
   url: string;
 
-  constructor(public navCtrl: NavController, public redditService: RedditDataProvider, public settings: Settings) {
+  constructor(public navCtrl: NavController, public redditService: RedditDataProvider, public settings: Settings, public storage: Storage) {
     this.init();
+
+  }
+
+  ionViewDidEnter() {
+      
   }
 
   init() {
+      this.storage.set("skipTutorial", "89757");
       this.settings.load().then((data) => {
-      this.settingPara = "";
+      this.settingPara = null;
       for (var key in data) {
           if (key === "list")
             continue;
@@ -31,13 +38,22 @@ export class CardsPage {
          else 
             this.settingPara = this.settingPara + "0";
       }
-      console.log(parseInt(this.settingPara.split("").reverse().join(""),2));
-      this.settingPara = parseInt(this.settingPara.split("").reverse().join(""),2);
+      if (this.settingPara == null) {
+        this.settingPara = "16383";
+      } else {
+        console.log(parseInt(this.settingPara.split("").reverse().join(""),2));
+        this.settingPara = parseInt(this.settingPara.split("").reverse().join(""),2);
+      }
+        
+     
+      
+      console.log(this.settingPara);
       this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=10';
       this.redditService.getRemoteData(this.url).subscribe(
                 data => {
                     this.cardItems = data.posts;
                 }
+      
     );
     });
     }
@@ -79,7 +95,7 @@ export class CardsPage {
     }
 
     deleteItem(item){
-
+        this.cardItems.splice(this.cardItems.indexOf(item), 1);
     }
 
   

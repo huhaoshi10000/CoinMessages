@@ -4,6 +4,9 @@ import { SettingsPage } from './settings/settings';
 import { TabsPage } from './tabs/tabs';
 import { TutorialPage } from './tutorial/tutorial';
 import { CardsPage } from './cards/cards';
+import { WelcomePage } from './welcome/welcome';
+
+export const WelcomeLoginPage = WelcomePage;
 
 // The page the user lands on after opening the app and without a session
 export const FirstRunPage = TutorialPage;
