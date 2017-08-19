@@ -1,24 +1,25 @@
 page-login {
+
+    button.login {
+        margin-top: auto;
+        background-color: white;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+        color: #333;
+    
+        &.activated {
+          background-color: rgb(220, 220, 220);
+        }
+      }
+    
+    .splash-bg {
+        position: relative;
+        background: url('../assets/img/splashbg.PNG') no-repeat transparent;
+        background-size: cover;
+        height: 45%;
+        z-index: 1;
+        background-repeat: repeat-x;
+        animation: animatedBackground 40s linear infinite;
+      }
 }
 
-.center {
-    margin-top: 300px;
-    margin-right: auto;
-    display: block;
-}
 
-ion-grid {
-    height: 100%;
-    justify-content: center;
-}
-
-button.login {
-    margin-top: auto;
-    background-color: white;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-    color: #333;
-
-    &.activated {
-      background-color: rgb(220, 220, 220);
-    }
-  }

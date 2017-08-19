@@ -23,6 +23,7 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { SettingHomePage} from '../pages/setting-home/setting-home';
 import {JpushSettingPage} from '../pages/jpush-setting/jpush-setting'
+import {EveryWelcomePage} from '../pages/every-welcome/every-welcome'
 
 
 import { Api } from '../providers/api';
@@ -113,7 +114,8 @@ const cloudSettings: CloudSettings = {
     TutorialPage,
     WelcomePage,
     SettingHomePage,
-    JpushSettingPage
+    JpushSettingPage,
+    EveryWelcomePage
   ],
   imports: [
     BrowserModule,
@@ -147,7 +149,8 @@ const cloudSettings: CloudSettings = {
     TutorialPage,
     WelcomePage,
     SettingHomePage,
-    JpushSettingPage
+    JpushSettingPage,
+    EveryWelcomePage
   ],
   providers: [
     Api,
