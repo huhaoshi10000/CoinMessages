@@ -57,9 +57,7 @@ export class MyApp {
     storage.set("settingChanged", "DontNeedData");
     this.initTranslate();
     this.jpush.init();
-    document.addEventListener("jpush.receiveNotification", () => {
-        storage.set("jpushRecieved", "NeedData");
-      }, false);
+    
 
     this.storage.get("skipTutorial").then(settings => {
       if (settings === "89757")

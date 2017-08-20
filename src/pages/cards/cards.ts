@@ -17,7 +17,10 @@ export class CardsPage {
 
   constructor(public navCtrl: NavController, public redditService: RedditDataProvider, public settings: Settings, public storage: Storage) {
     this.init();
-
+    document.addEventListener("jpush.receiveNotification", () => {
+        storage.set("jpushRecieved", "NeedData");
+        this.init();
+      }, false);
   }
 
   ionViewDidEnter() {
@@ -25,18 +28,16 @@ export class CardsPage {
       .then(value => {
         if (value === "NeedData") {
           this.init();
-          this.storage.set("settingChanged", "DontNeedData");
         }
       });
 
       this.storage.get("jpushRecieved")
       .then(value => {
         if (value === "NeedData") {
-          this.init();
-          this.storage.set("settingChanged", "DontNeedData");
+          this.init(); 
         }
       });
-  
+    
   }
 
   init() {
@@ -63,9 +64,10 @@ export class CardsPage {
      
       
       console.log(this.settingPara);
-      this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=20';
+      this.url = 'http://139.224.112.58:3389/api/getNews?identity=' + this.settingPara + '&number=20';
       this.redditService.getRemoteData(this.url).subscribe(
                 data => {
+                console.log(data.posts);
                     this.cardItems = data.posts;
                     for (let i in this.cardItems) {
                     if (this.cardItems[i].website.code === "BA")
@@ -74,6 +76,8 @@ export class CardsPage {
                        this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
                     }
                     this.storage.set("currentData", this.cardItems);
+                    this.storage.set("settingChanged", "DontNeedData");
+                    this.storage.set("jpushRecieved", "DontNeedData");
                 }
       
     );
@@ -98,7 +102,7 @@ export class CardsPage {
       console.log(parseInt(this.settingPara.split("").reverse().join(""),2));
       this.settingPara = parseInt(this.settingPara.split("").reverse().join(""),2);
       
-      this.url = 'http://120.27.15.227:3389/api/getNews?identity=' + this.settingPara + '&number=20';
+      this.url = 'http://139.224.112.58:3389/api/getNews?identity=' + this.settingPara + '&number=20';
 
       this.storage.get("settingChanged")
       .then(value => {
@@ -115,8 +119,9 @@ export class CardsPage {
                         
                     }
                     else {                                                          //require new data
-                            this.redditService.getRemoteData(this.url).subscribe(
+                            this.redditService.getRemoteData1(this.url, refresher).subscribe(
                               data => {
+                                console.log(data.posts);
                                 this.cardItems = data.posts;
                                 for (let i in this.cardItems) {
                                   if (this.cardItems[i].website.code === "BA")
@@ -125,13 +130,35 @@ export class CardsPage {
                                     this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
                                 } 
                               this.storage.set("currentData", this.cardItems);
+                              this.storage.set("settingChanged", "DontNeedData");
+                              this.storage.set("jpushRecieved", "DontNeedData");
                               refresher.complete();
                                       
                             });
-                            }
+                     }
                           });
 
-                    }
+            }
+            else {                                                          //require new data
+                            this.redditService.getRemoteData1(this.url, refresher).subscribe(
+                              data => {
+                                console.log(data.posts);
+                                this.cardItems = data.posts;
+                                for (let i in this.cardItems) {
+                                  if (this.cardItems[i].website.code === "BA")
+                                    this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".svg";
+                                  else
+                                    this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
+                                } 
+                              this.storage.set("currentData", this.cardItems);
+                              this.storage.set("settingChanged", "DontNeedData");
+                              this.storage.set("jpushRecieved", "DontNeedData");
+                              refresher.complete();
+                                      
+                            });
+                     }
+
+
               });
         });
       }

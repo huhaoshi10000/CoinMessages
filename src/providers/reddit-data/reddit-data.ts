@@ -24,4 +24,9 @@ export class RedditDataProvider {
         return response;
   }
 
+  getRemoteData1(url, refresher){
+     var response = this.http.get(url).timeout(3000, refresher.complete()).map(res => res.json());
+        return response;
+  }
+
 }
