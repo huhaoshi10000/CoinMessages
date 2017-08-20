@@ -53,8 +53,13 @@ export class MyApp {
   ]
 
   constructor( private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush: JPush, public storage: Storage) {
+    storage.set("jpushRecieved", "DontNeedData");
+    storage.set("settingChanged", "DontNeedData");
     this.initTranslate();
     this.jpush.init();
+    document.addEventListener("jpush.receiveNotification", () => {
+        storage.set("jpushRecieved", "NeedData");
+      }, false);
 
     this.storage.get("skipTutorial").then(settings => {
       if (settings === "89757")

@@ -6,6 +6,7 @@ import { Settings } from '../../providers/settings';
 import { JPush } from 'ionic3-jpush';
 import { TranslateService } from '@ngx-translate/core';
 import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
+import { Storage } from '@ionic/storage';
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -43,7 +44,8 @@ export class SettingsPage {
     public navParams: NavParams,
     public translate: TranslateService,
     public redditService: RedditDataProvider,
-    public jpush: JPush) {
+    public jpush: JPush,
+    public storage: Storage) {
     var url = 'assets/json/settingList.json';
     this.redditService.getRemoteData(url).subscribe(
       data => {
@@ -76,6 +78,7 @@ export class SettingsPage {
 
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
+      this.storage.set("settingChanged", "NeedData");
       this.form.value.list = [];
       for (let key in this.form.value) {
         if (key === "list")
