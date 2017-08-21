@@ -8,7 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-contat-info',
   templateUrl: 'contat-info.html',

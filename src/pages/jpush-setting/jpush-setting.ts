@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-jpush-setting',
   templateUrl: 'jpush-setting.html',
