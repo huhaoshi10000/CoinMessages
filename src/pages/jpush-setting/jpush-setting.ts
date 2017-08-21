@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { JPush } from 'ionic3-jpush';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the JpushSettingPage page.
@@ -16,10 +17,14 @@ import { JPush } from 'ionic3-jpush';
 })
 export class JpushSettingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private jpush: JPush) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private jpush: JPush, private storage: Storage) {
+    this.storage.get('receivePush').then(setting=>{
+      this.receivePush = setting;
+      console.log(this.receivePush);
+    });
   }
   public pushConfigs = "接受推送通知";
-  receivePush = true;
+  public receivePush;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JpushSettingPage');
@@ -27,6 +32,7 @@ export class JpushSettingPage {
 
   setReceive(){
     console.log(this.receivePush);
+    this.storage.set('receivePush', this.receivePush);
     if(!this.receivePush){
       this.jpush.stopPush();
     }

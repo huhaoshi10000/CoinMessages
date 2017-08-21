@@ -138,6 +138,11 @@ export class WelcomePage {
     this.showLogin = false;
   }
 
+  backLogin(){
+    this.showLogin = !this.showLogin;
+    this.showRegister = !this.showRegister;
+  }
+
   // signup() {
   //   this.navCtrl.push(SignupPage);
   // }
