@@ -4,6 +4,8 @@ import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { Settings } from '../../providers/settings';
 import { Storage } from '@ionic/storage';
+import { Platform } from 'ionic-angular';
+import { MainPage } from '../../pages/pages';
 
 
 @Component({
@@ -15,12 +17,19 @@ export class CardsPage {
   settingPara: any;
   url: string;
 
-  constructor(public navCtrl: NavController, public redditService: RedditDataProvider, public settings: Settings, public storage: Storage) {
+  constructor(public platform:Platform, public navCtrl: NavController, public redditService: RedditDataProvider, public settings: Settings, public storage: Storage) {
     this.init();
     document.addEventListener("jpush.receiveNotification", () => {
         storage.set("jpushRecieved", "NeedData");
         this.init();
       }, false);
+    this.backButtonToMainPage();
+  }
+
+  backButtonToMainPage(){
+    this.platform.registerBackButtonAction(()=>{
+      console.log('do nothing');
+    },0)
   }
 
   ionViewDidEnter() {

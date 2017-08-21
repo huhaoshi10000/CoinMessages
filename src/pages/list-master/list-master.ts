@@ -7,6 +7,8 @@ import {SettingsPage} from '../settings/settings';
 import {JpushSettingPage} from '../jpush-setting/jpush-setting'
 import {UsermanualPage} from '../usermanual/usermanual'
 import {ContatInfoPage} from '../contat-info/contat-info'
+import { Platform } from 'ionic-angular';
+import { MainPage } from '../../pages/pages';
 
 
 import { Items } from '../../providers/providers';
@@ -21,8 +23,16 @@ import { Item } from '../../models/item';
 export class ListMasterPage {
   currentItems: Item[];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public platform: Platform) {
+    this.currentItems = this.items.query();       
+    this.backButtonToMainPage(); 
+  }
+
+    
+  backButtonToMainPage(){
+    this.platform.registerBackButtonAction(()=>{
+      this.navCtrl.push(MainPage);
+    },0)
   }
 
   /**
@@ -30,6 +40,8 @@ export class ListMasterPage {
    */
   ionViewDidLoad() {
   }
+
+
 
   /**
    * Prompt the user to add a new item. This shows our ItemCreatePage in a
