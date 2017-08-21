@@ -20,7 +20,6 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { Storage } from '@ionic/storage';
 import { Settings } from '../providers/providers';
 import { JPush } from 'ionic3-jpush';
-import {EveryWelcomePage} from '../pages/every-welcome/every-welcome'
 
 import { TranslateService } from '@ngx-translate/core'
 import { MainPage } from '../pages/pages';
@@ -61,7 +60,7 @@ export class MyApp {
 
     this.storage.get("skipTutorial").then(settings => {
       if (settings === "89757")
-        this.rootPage = EveryWelcomePage;
+        this.rootPage = MainPage;
       else
         this.rootPage = FirstRunPage;
     });
