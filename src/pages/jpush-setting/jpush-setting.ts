@@ -9,7 +9,7 @@ import { JPush } from 'ionic3-jpush';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-jpush-setting',
   templateUrl: 'jpush-setting.html',

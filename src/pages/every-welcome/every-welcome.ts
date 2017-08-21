@@ -10,7 +10,7 @@ import { MainPage } from '../pages';
  * on Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-every-welcome',
   templateUrl: 'every-welcome.html',
