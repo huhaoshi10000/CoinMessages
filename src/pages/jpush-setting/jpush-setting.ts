@@ -24,7 +24,7 @@ export class JpushSettingPage {
     });
   }
   public pushConfigs = "接受推送通知";
-  public receivePush =true;
+  public receivePush;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JpushSettingPage');

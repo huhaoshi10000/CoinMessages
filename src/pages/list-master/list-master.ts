@@ -25,16 +25,9 @@ export class ListMasterPage {
 
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public platform: Platform) {
     this.currentItems = this.items.query();       
-    this.backButtonToMainPage(); 
   }
 
-    
-  backButtonToMainPage(){
-    this.platform.registerBackButtonAction(()=>{
-      this.navCtrl.push(MainPage);
-    },0)
-  }
-
+  
   /**
    * The view loaded, let's query our items for the list
    */

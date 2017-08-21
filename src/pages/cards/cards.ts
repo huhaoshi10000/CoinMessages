@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { RedditDataProvider } from '../../providers/reddit-data/reddit-data';
 import { ItemDetailPage } from '../item-detail/item-detail';
 import { Settings } from '../../providers/settings';
 import { Storage } from '@ionic/storage';
 import { Platform } from 'ionic-angular';
 import { MainPage } from '../../pages/pages';
+import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 
 
 @Component({
@@ -17,8 +18,9 @@ export class CardsPage {
   settingPara: any;
   url: string;
 
-  constructor(public platform:Platform, public navCtrl: NavController, public redditService: RedditDataProvider, public settings: Settings, public storage: Storage) {
+  constructor(private toastCtrl:ToastController, private auth:Auth, public platform:Platform, public navCtrl: NavController, public redditService: RedditDataProvider, public settings: Settings, public storage: Storage) {
     this.init();
+    this.authOnStart();
     document.addEventListener("jpush.receiveNotification", () => {
         storage.set("jpushRecieved", "NeedData");
         this.init();
@@ -30,6 +32,25 @@ export class CardsPage {
     this.platform.registerBackButtonAction(()=>{
       console.log('do nothing');
     },0)
+  }
+
+  authOnStart() {
+    this.storage.get('loginDetails').then((detail) => {
+      // console.log(detail);
+      this.auth.login('basic', detail).then(() => {
+        let toast = this.toastCtrl.create({
+          message: '登陆成功',
+          duration: 3000,          
+          position: 'top'                 
+        });
+        toast.present();
+      }, (err) => {
+        console.log(err.message);
+        let errors = '';
+        if (err.message === 'UNPROCESSABLE ENTITY') errors += 'Email isn\'t valid.<br/>';
+        if (err.message === 'UNAUTHORIZED') errors += 'Password is required.<br/>';
+      });
+    })
   }
 
   ionViewDidEnter() {
