@@ -51,18 +51,21 @@ export class MyApp {
     { title: 'Search', component: SearchPage }
   ]
 
-  constructor( private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush: JPush, public storage: Storage) {
+  constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private jpush: JPush, public storage: Storage) {
     storage.set("jpushRecieved", "DontNeedData");
     storage.set("settingChanged", "DontNeedData");
     this.initTranslate();
     this.jpush.init();
-    
+
 
     this.storage.get("skipTutorial").then(settings => {
-      if (settings === "89757")
+      if (settings === "89757") {
         this.rootPage = MainPage;
-      else
+      }
+      else {
         this.rootPage = FirstRunPage;
+        this.storage.set('receivePush', true);
+      }
     });
   }
 
