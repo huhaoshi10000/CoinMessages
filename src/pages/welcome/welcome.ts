@@ -22,9 +22,17 @@ export class WelcomePage {
   
   private  showLogin: boolean = true;
   showRegister: boolean = false;
+  showResetPassword: boolean = false;  
+  showResetCodeAndPass = false;
+
   email: string = '';
   password: string = '';
   name: string = '';
+  resetPasswordEmail: string = '';
+  resetCode: number;
+  newPassword: string = '';
+  
+
 
   
 
@@ -136,11 +144,70 @@ export class WelcomePage {
   doShowRegister() {
     this.showRegister = true;
     this.showLogin = false;
+    this.showResetPassword = false;
+    this.showResetCodeAndPass = false;
   }
 
   backLogin(){
-    this.showLogin = !this.showLogin;
-    this.showRegister = !this.showRegister;
+    this.showLogin = true;
+    this.showRegister = false;
+    this.showResetPassword = false;
+    this.showResetCodeAndPass = false;
+    
+  }
+
+  resetPassword(){
+    this.showResetPassword =true;
+    this.showLogin = false;
+    this.showRegister = false;
+    this.showResetCodeAndPass = false;
+    
+  }
+
+  sendResetEmail(){
+    if (this.resetPasswordEmail === '') {
+      let toast = this.toastCtrl.create({
+        message: '请填写相应信息',
+        position: 'top',
+        duration: 3000          
+      });
+      toast.present();
+      return;
+    }
+    this.auth.requestPasswordReset(this.resetPasswordEmail).then(()=>{
+      let toast = this.toastCtrl.create({
+        message: '邮件成功发送',
+        position: 'top',
+        duration: 3000          
+      });
+    });
+    
+    this.showResetCodeAndPass = true;    
+    this.showResetPassword =false;
+    this.showLogin = false;
+    this.showRegister = false;
+    
+  }
+
+  confirmChangePassword(){
+    if (this.resetCode === null || this.newPassword === '') {
+      let toast = this.toastCtrl.create({
+        message: '请填写相应信息',
+        position: 'top',
+        duration: 3000          
+      });
+      toast.present();
+      return;
+    }
+    this.auth.confirmPasswordReset(this.resetCode, this.newPassword).then(()=>{
+      let toast = this.toastCtrl.create({
+        message: '密码修改成功，请返回重新登陆',
+        position: 'top',
+        duration: 3000          
+      });
+      this.backLogin();
+    }, )
+    
   }
 
   // signup() {

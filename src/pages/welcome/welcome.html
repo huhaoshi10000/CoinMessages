@@ -16,7 +16,24 @@
     </ion-item>
   </div>
 
-  <div *ngIf="!showLogin">
+  <div *ngIf="showResetCodeAndPass" class="center">
+    <ion-item>
+      <ion-input type="number" placeholder="六位验证码" [(ngModel)]="resetCode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="新密码" [(ngModel)]="newPassword"></ion-input>
+    </ion-item>
+  </div>
+
+  <div *ngIf="showResetPassword" class="center">
+    <ion-item>
+      <ion-input type="email" placeholder="在此输入您的注册邮箱" [(ngModel)]="resetPasswordEmail"></ion-input>
+    </ion-item>
+
+  </div>
+
+  <div *ngIf="showRegister">
 
     <ion-item>
       <ion-input type="text" placeholder="用户名" [(ngModel)]="name"></ion-input>
@@ -41,10 +58,25 @@
   <div *ngIf="showLogin">
     <button ion-button (click)="doShowRegister()" class="login">还没注册？</button>
   </div>
+
+  <div *ngIf="showLogin">
+    <button ion-button (click)="resetPassword()" class="login">忘记密码？</button>
+  </div>
   <div *ngIf="showRegister">
     <button ion-button (click)="doRegister()" class="login">注册</button>
   </div>
   <div *ngIf="showRegister">
     <button ion-button (click)="backLogin()" class="login">返回登陆</button>
+  </div>
+
+  <div *ngIf="showResetPassword">
+    <button ion-button (click)="sendResetEmail()" class="login">发送重置密码邮件</button>
+  </div>
+  <div *ngIf="showResetPassword">
+    <button ion-button (click)="backLogin()" class="login">返回登陆</button>
+  </div>
+
+  <div *ngIf="showResetCodeAndPass">
+    <button ion-button (click)="confirmChangePassword()" class="login">确认更改密码</button>
   </div>
 </ion-content>
