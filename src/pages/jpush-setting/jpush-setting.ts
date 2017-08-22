@@ -28,6 +28,9 @@ export class JpushSettingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JpushSettingPage');
+    //to set jpush alias for testing
+    // this.jpush.setAlias('nan');
+        
   }
 
   setReceive(){
