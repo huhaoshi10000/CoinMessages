@@ -31,6 +31,10 @@ export class Items {
       {
         "name":"联系我们",
         "about": ""     
+      },
+      {
+        "name":"始终开启应用",
+        "about": ""     
       }
     ];
 

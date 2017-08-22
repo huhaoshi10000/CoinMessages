@@ -43,6 +43,7 @@ import { RedditDataProvider } from '../providers/reddit-data/reddit-data';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { JPush } from 'ionic3-jpush';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -164,6 +165,7 @@ const cloudSettings: CloudSettings = {
     SplashScreen,
     StatusBar,
     JPush,
+    BackgroundMode,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
