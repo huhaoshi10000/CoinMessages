@@ -37,7 +37,12 @@
 
 <ion-content>
 
-  <ion-refresher pulling-text="下拉刷新" (ionRefresh)="doRefresh($event)">
+  <ion-refresher  
+    pullingIcon="arrow-dropdown"
+    pullingText="Pull to refresh"
+    refreshingSpinner="circles"
+    refreshingText="Refreshing..." 
+  (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list>

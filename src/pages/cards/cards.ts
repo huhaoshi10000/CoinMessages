@@ -134,64 +134,26 @@ export class CardsPage {
       
       this.url = 'http://139.224.112.58:3389/api/getNews?identity=' + this.settingPara + '&number=20';
 
-      this.storage.get("settingChanged")
-      .then(value => {
-        if (value === "DontNeedData") {
-            this.storage.get("jpushRecieved")
-              .then(value2 => {
-                    if (value2 === "DontNeedData") {                            //use current data
-                      this.storage.get("currentData").then((card) => {
-                          this.cardItems = card;
-                          setTimeout(() => {
-                            refresher.complete();
-                          }, 800);
-                      }); 
-                        
-                    }
-                    else {                                                          //require new data
-                            this.redditService.getRemoteData1(this.url, refresher).subscribe(
-                              data => {
-                                console.log(data.posts);
-                                this.cardItems = data.posts;
-                                for (let i in this.cardItems) {
-                                  if (this.cardItems[i].website.code === "BA")
-                                    this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".svg";
-                                  else
-                                    this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
-                                } 
-                              this.storage.set("currentData", this.cardItems);
-                              this.storage.set("settingChanged", "DontNeedData");
-                              this.storage.set("jpushRecieved", "DontNeedData");
-                              refresher.complete();
-                                      
-                            });
-                     }
-                          });
-
-            }
-            else {                                                          //require new data
-                            this.redditService.getRemoteData1(this.url, refresher).subscribe(
-                              data => {
-                                console.log(data.posts);
-                                this.cardItems = data.posts;
-                                for (let i in this.cardItems) {
-                                  if (this.cardItems[i].website.code === "BA")
-                                    this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".svg";
-                                  else
-                                    this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
-                                } 
-                              this.storage.set("currentData", this.cardItems);
-                              this.storage.set("settingChanged", "DontNeedData");
-                              this.storage.set("jpushRecieved", "DontNeedData");
-                              refresher.complete();
-                                      
-                            });
-                     }
-
-
-              });
-        });
-      }
+                                                          //require new data
+         this.redditService.getRemoteData1(this.url, refresher).subscribe(
+            data => {
+            console.log(data.posts);
+            this.cardItems = data.posts;
+            for (let i in this.cardItems) {
+              if (this.cardItems[i].website.code === "BA")
+                this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".svg";
+              else
+                this.cardItems[i].website.logo = "assets/web-icon/" + this.cardItems[i].website.code + ".png";
+            } 
+              console.log(refresher);
+              this.storage.set("currentData", this.cardItems);
+              this.storage.set("settingChanged", "DontNeedData");
+              this.storage.set("jpushRecieved", "DontNeedData");
+              refresher.complete();    
+                                                
+           });
+      });
+  }
 
 
 
