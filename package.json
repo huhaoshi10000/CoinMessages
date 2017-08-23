@@ -72,9 +72,11 @@
         "APP_KEY": "f3422ae6d945cdc664665a2d"
       }
     },
+
     "platforms": [
       "android",
       "ios"
     ]
   }
 }
+

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import { JPush } from 'ionic3-jpush';
 import { Storage } from '@ionic/storage';
 
@@ -17,7 +17,7 @@ import { Storage } from '@ionic/storage';
 })
 export class JpushSettingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private jpush: JPush, private storage: Storage) {
+  constructor(private toastCtrl:ToastController, public navCtrl: NavController, public navParams: NavParams, private jpush: JPush, private storage: Storage) {
     this.storage.get('receivePush').then(setting=>{
       this.receivePush = setting;
       console.log(this.receivePush);
@@ -29,8 +29,13 @@ export class JpushSettingPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad JpushSettingPage');
     //to set jpush alias for testing
-    // this.jpush.setAlias('nan');
-        
+    // this.jpush.setAlias('nan').then(()=>{
+    //   let toast = this.toastCtrl.create({
+    //     message: 'alias as nan',
+    //     position: 'top',
+    //     duration: 3000          
+    //   });
+    // })
   }
 
   setReceive(){
