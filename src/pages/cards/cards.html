@@ -37,13 +37,12 @@
 
 <ion-content>
 
-  <ion-refresher  
-    pullingIcon="arrow-dropdown"
-    pullingText="Pull to refresh"
-    refreshingSpinner="circles"
-    refreshingText="Refreshing..." 
-  (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingIcon="arrow-dropdown"
+      pullingText="下拉刷新"
+      refreshingText="正在获取数据..." >      
+    </ion-refresher-content>
   </ion-refresher>
   <ion-list>
     <ion-item-sliding *ngFor="let item of cardItems">
