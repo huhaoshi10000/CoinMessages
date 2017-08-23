@@ -5,6 +5,7 @@ import { MainPage } from '../../pages/pages';
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
 import { Storage } from '@ionic/storage';
+import { Keyboard } from '@ionic-native/keyboard';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -18,8 +19,15 @@ import { Storage } from '@ionic/storage';
 })
 export class WelcomePage {
 
-  constructor(private toastCtrl: ToastController,  private storage: Storage, public navCtrl: NavController, public auth: Auth, public user: User,  public loadingCtrl: LoadingController) { }
-  
+  constructor(private toastCtrl: ToastController,  private storage: Storage, public navCtrl: NavController, public auth: Auth, public user: User,  public loadingCtrl: LoadingController, private keyboard: Keyboard) {
+     
+
+      keyboard.disableScroll(true);
+      
+   }
+
+
+  position: any;
   private  showLogin: boolean = true;
   showRegister: boolean = false;
   showResetPassword: boolean = false;  
@@ -32,7 +40,6 @@ export class WelcomePage {
   resetCode: number;
   newPassword: string = '';
   
-
 
   
 

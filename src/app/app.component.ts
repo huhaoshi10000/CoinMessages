@@ -57,6 +57,7 @@ export class MyApp {
     this.initTranslate();
     this.jpush.init();
 
+   
 
     this.storage.get("skipTutorial").then(settings => {
       if (settings === "89757") {
