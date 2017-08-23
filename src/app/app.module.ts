@@ -43,13 +43,11 @@ import { RedditDataProvider } from '../providers/reddit-data/reddit-data';
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { JPush } from 'ionic3-jpush';
-<<<<<<< HEAD
+
 import { Keyboard } from '@ionic-native/keyboard';
 
-
-=======
 import { BackgroundMode } from '@ionic-native/background-mode';
->>>>>>> cc6e5df87c5554c6495d3a05545d4aff9b5139d5
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
