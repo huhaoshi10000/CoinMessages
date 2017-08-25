@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-
+import { Platform } from 'ionic-angular';
 import { Item } from '../../models/item';
 
 @Injectable()
@@ -14,30 +13,36 @@ export class Items {
   };
 
 
-  constructor(public http: Http) {
+  constructor(public platform: Platform) {
+    this.iniItems();
+  }
+
+  iniItems() {
     let items = [
       {
         "name": "推送网站设置",
         "about": ""
       },
       {
-        "name":"推送设置",
-        "about": ""     
+        "name": "推送设置",
+        "about": ""
       },
       {
-        "name":"使用手册",
-        "about": ""     
+        "name": "使用手册",
+        "about": ""
       },
       {
-        "name":"联系我们",
-        "about": ""     
-      },
-      {
-        "name":"始终开启应用",
-        "about": ""     
+        "name": "联系我们",
+        "about": ""
       }
     ];
 
+    if (this.platform.is("android")) {
+      items.push({
+        "name": "始终开启应用",
+        "about": ""
+      })
+    }
     for (let item of items) {
       this.items.push(new Item(item));
     }
