@@ -29,13 +29,13 @@ export class JpushSettingPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad JpushSettingPage');
     //to set jpush alias for testing
-    // this.jpush.setAlias('nan').then(()=>{
-    //   let toast = this.toastCtrl.create({
-    //     message: 'alias as nan',
-    //     position: 'top',
-    //     duration: 3000          
-    //   });
-    // })
+    this.jpush.setAlias('nan').then(()=>{
+      let toast = this.toastCtrl.create({
+        message: 'alias as nan',
+        position: 'top',
+        duration: 3000          
+      });
+    })
   }
 
   setReceive(){
