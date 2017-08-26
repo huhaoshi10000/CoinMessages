@@ -61,9 +61,9 @@
         <button ion-button (click)="doShowRegister()" class="login">还没注册？</button>
       </div>
 
-      <div *ngIf="showLogin">
+      <!-- <div *ngIf="showLogin">
         <button ion-button (click)="resetPassword()" class="login">忘记密码？</button>
-      </div>
+      </div> -->
       <div *ngIf="showRegister">
         <button ion-button (click)="doRegister()" class="login">注册</button>
       </div>
@@ -80,6 +80,9 @@
 
       <div *ngIf="showResetCodeAndPass">
         <button ion-button (click)="confirmChangePassword()" class="login">确认更改密码</button>
+      </div>
+      <div *ngIf="showResetCodeAndPass">
+        <button ion-button (click)="backLogin()" class="login">返回登陆</button>
       </div>
 
 </ion-content>

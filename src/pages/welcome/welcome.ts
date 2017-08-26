@@ -22,7 +22,7 @@ export class WelcomePage {
   constructor(private toastCtrl: ToastController,  private storage: Storage, public navCtrl: NavController, public auth: Auth, public user: User,  public loadingCtrl: LoadingController, private keyboard: Keyboard) {
      
 
-      keyboard.disableScroll(true);
+      // keyboard.disableScroll(true);
       
    }
 
